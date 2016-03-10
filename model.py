@@ -5,5 +5,5 @@ def test_function_1(request):
 
 def test_function_2(request):
     return { 
-        'message' : 'test function 2!'
+        'message' : 'test function 3!'
     }
