@@ -2,6 +2,7 @@
     "id": "0d2c91243a694f4f94e200058e39b0c3",
     "name": "Test Model",
     "description": "This is a test model",
+    "version": 1,
     "functions": [
         {
             "name": "TestFunction1",
