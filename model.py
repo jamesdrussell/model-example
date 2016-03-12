@@ -1,6 +1,9 @@
+import numpy as np
+
 def test_function_1(request):
+    a = np.array([1, 2, 3])
     return { 
-        'message' : 'test function asdfasdfasdf!'
+        'message' : a.size
     }
 
 def test_function_2(request):
