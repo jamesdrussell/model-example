@@ -57,7 +57,7 @@ class FbApi:
     		return None
 
     def get_station_with_data(self, lat, lon, datatype):
-    	results = self.stations_by_radius_q(lat, lon, 0.4, 200)
+    	results = self.stations_by_radius_q(lat, lon, 0.2, 50)
     	if not FbApi.check_ok(results, "stations_by_radius_q"):
     		return None
 
