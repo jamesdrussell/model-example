@@ -17,7 +17,7 @@
         {
             "name": "EtCalc",
             "description": "Implementation of the blaney criddle equation",
-            "handler": "et.et_calc"
+            "handler": "model.et_compute"
         }
     ]
 }
