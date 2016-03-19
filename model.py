@@ -5,7 +5,7 @@ import requests as req
 import et
 import time
 
-def test_et_compute():
+def verify_et_compute():
     start = time.time()
     result = et_compute({"lat":42.021389, "lon":-93.77388, "days" : 365, "start-date" : "2012-01-01"})
     end = time.time()
