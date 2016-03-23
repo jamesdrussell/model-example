@@ -1,8 +1,8 @@
 {
-    "id": "0d2c91243a694f4f94e200058e39b0c3",
-    "name": "Test Model",
-    "description": "This is a test model",
-    "version": 3,
+    "id": "et-Ahd4ke0H",
+    "name": "Ref. ET Model",
+    "description": "Reference et model",
+    "version": 9,
     "functions": [
         {
             "name": "TestFunction1",
@@ -13,6 +13,11 @@
             "name": "TestFunction2",
             "description": "This is the second test function",
             "handler": "model.test_function_2"
+        },
+        {
+            "name": "EtCalc",
+            "description": "Implementation of the blaney criddle equation",
+            "handler": "model.et_compute"
         }
     ]
 }
