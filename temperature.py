@@ -1,8 +1,22 @@
 import fb_stations_query as fb_stations_q
+import fb_forecast_query as fb_forecast_q
 import math as m
 import pandas as pd
 
 from pandas import DataFrame
+
+class GfsForecastTemperatureData:
+    """Class that wraps temperature forecast"""
+
+    def __init__(self):
+        """Return a TemperatureData initialized."""
+        self.dsq = fb_forecast_q.FbForecastApi("gfs")
+
+    def get_data_as_df(self, lat, lon, count):
+        temp_df = self.dsq.forecast_as_df(lat, lon, "TMP_K", count)
+        temp_df['TMP_F'] = (temp_df['TMP_K'] * 1.8) - 459.67
+        temp_df['TMP_C'] = temp_df['TMP_K'] - 273.15
+        return temp_df
 
 class GhcnTemperatureData:
     """Class that wraps temperature (tmax & tmin) time-series"""

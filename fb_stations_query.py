@@ -23,7 +23,7 @@ class FbStationsApi:
     		return True
 
     def stations_by_radius_q(self, lat, lon, radius, limit):
-    	# http://api.farmbase.io/ghcn/stations?keys=station_id,name,min_date&where={"geom":{"$geoWithin":{"$center":[[-122.32,38.50],0.1]}}}&limit=10
+    	# https://api.farmbase.io/datasets/ghcn/stations?limit=10&where={"name":{"geom":{"$geoWithin":{"$center":[[-122.32,38.50],0.1]}}}}
     	query_clause = {"*" : {"geom" : {"$geoWithin":{"$center":[[lon, lat], radius]}}}, "station_id":{"$like":"USC0%"}}
     	s = json.dumps(query_clause)
     	payload = {'keys': 'station_id,name,min_date', 

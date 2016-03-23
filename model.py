@@ -3,6 +3,7 @@ import numpy as np
 import requests as req
 
 import et
+import temperature
 import time
 
 def verify_et_compute():
@@ -18,6 +19,11 @@ def et_compute(request):
     etmodel = et.EtBlaneyCriddleModel()
     data_series = etmodel.compute(lat, lon, None, ndays)
     return pd.Series.to_dict(data_series['ET'])
+
+def verify_forecast_compute():
+    gfs_forecast = temperature.GfsForecastTemperatureData()
+    result = gfs_forecast.get_data_as_df(42.021389, -93.77388, 365)
+    return result
 
 def test_function_1(request):
     a = np.array([1, 2, 3])
