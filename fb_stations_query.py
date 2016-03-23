@@ -4,7 +4,7 @@ import requests as req
 
 from pandas import DataFrame
 
-class FbApi:
+class FbStationsApi:
     """Class that queries the API for you"""
 
     def __init__(self, dataset):
@@ -44,7 +44,7 @@ class FbApi:
 
     def obs_for_station_as_df(self, station_id, datatype, limit):
     	obs_results = self.obs_for_station_q(station_id, datatype, limit)
-    	if not FbApi.check_ok(obs_results, "obs_for_station_q"):
+    	if not FbStationsApi.check_ok(obs_results, "obs_for_station_q"):
     		return None
 
     	obs_data = obs_results.json()['results']
@@ -58,7 +58,7 @@ class FbApi:
 
     def get_station_with_data(self, lat, lon, datatype):
     	results = self.stations_by_radius_q(lat, lon, 0.2, 50)
-    	if not FbApi.check_ok(results, "stations_by_radius_q"):
+    	if not FbStationsApi.check_ok(results, "stations_by_radius_q"):
     		return None
 
     	stations = results.json()['results']
@@ -72,7 +72,7 @@ class FbApi:
     		print "Querying station: {0}\n".format(station_id)
     		obs_results = self.obs_for_station_q(station_id, datatype, 2)
 
-    		if not FbApi.check_ok(obs_results, "obs_for_station_q"):
+    		if not FbStationsApi.check_ok(obs_results, "obs_for_station_q"):
     			return None
 
     		obs_data = obs_results.json()['results']

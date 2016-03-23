@@ -1,4 +1,4 @@
-import fb_query as fbq
+import fb_stations_query as fb_stations_q
 import math as m
 import pandas as pd
 
@@ -9,7 +9,7 @@ class GhcnTemperatureData:
 
     def __init__(self):
         """Return a TemperatureData initialized."""
-        self.dsq = fbq.FbApi("ghcn")
+        self.dsq = fb_stations_q.FbStationsApi("ghcn")
 
     def get_data_as_df(self, lat, lon, count):
     	station_id = self.dsq.get_station_with_data(lat, lon, "TMIN")
